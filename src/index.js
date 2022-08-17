@@ -5,12 +5,11 @@ import { fetchCountries } from './fetchCountries';
 
 const DEBOUNCE_DELAY = 300;
 
-
-const countryInputOn = document.querySelector('#search-box');
+const countryInput = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-countryInputOn.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
+countryInput.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
 
 function inputCountry(evt) {
     const nameCountry = evt.target.value.trim();
@@ -24,8 +23,7 @@ fetchCountries(nameCountry)
             Notify.info(
                 'Too many matches found. Please enter a more specific name.'
             );
-        }
-        if (response.length >= 2 && response.length <= 10) {
+        } if (response.length >= 2 && response.length <= 10) {
             searchListCountry(response);
         }
         if (response.length === 1) {
@@ -48,7 +46,6 @@ function searchListCountry(response) {
     countryList.innerHTML = markup;
 }
     
-
 function searchOneCountry(response) {
     const markup = response
     .map(el => {
