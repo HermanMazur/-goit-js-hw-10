@@ -10,3 +10,11 @@ const countryInputOn = document.querySelector('#search-box');
 const countryList = document / querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
+countryInputOn.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
+
+function inputCountry(evt) {
+    const countryName = evt.target.value.trim();
+    if (countryName === "") {
+        return;
+    }
+}
