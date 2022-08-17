@@ -27,9 +27,24 @@ fetchCountries(countryName)
             );
         }
         if (response.length >= 2 && response.length <= 10) {
-            searchOneCountry(response);
+            searchListCountry(response);
+        }
+        if (response.length === 1) {
+            searchOneCountry(response)
         }
     })
     .catch(error => console.log(error));
 clearSearchCountry();
+
+function searchListCountry(response) {
+    const markup = response
+        .map(e => {
+            return `<div class="item_country">
+            <img class="img" src="${el.flags.svg}" width = 30 alt="flag">
+            <h3 class="title">${el.name.official}<h3>
+            </li>`;
+        })
+        .join('');
+    countryList.innerHTML = markup;
+}
 
