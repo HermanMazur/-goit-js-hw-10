@@ -49,21 +49,21 @@ function searchListCountry(response) {
 }
 
 function searchOneCountry(response) {
-  const markUp = response
+    const markUp = response
     .map(el => {
-      return `<div class="item_country"><img class="img" src="${
+    return `<div class="item_country"><img class="img" src="${
         el.flags.svg
-      }" width=50 alt="flag">
-      <h1 class ="title">${el.name.official}</h1></div>
+    }" width=50 alt="flag">
+    <h1 class ="title">${el.name.official}</h1></div>
     <p class="text"><b>Capital:</b> ${el.capital}</p>
     <p class="text"><b>Population:</b> ${el.population}</p>
     <p class="text"><b>Languages:</b> ${Object.values(el.languages)}</p>`;
     })
     .join('');
-  countryInfo.innerHTML = markUp;
+    countryInfo.innerHTML = markUp;
 }
 
 function clearSearchCountry() {
-  countryList.innerHTML = '';
-  countryInfo.innerHTML = '';
+    countryList.innerHTML = '';
+    countryInfo.innerHTML = '';
 }
