@@ -9,7 +9,7 @@ const countryInput = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
-countryInput.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
+countryInput.addEventListener('input', debounce(inputCountry, DEBOUNCE_DELAY));
 
 function inputCountry(evt) {
     const nameCountry = evt.target.value.trim();
