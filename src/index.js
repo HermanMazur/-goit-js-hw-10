@@ -38,8 +38,8 @@ fetchCountries(nameCountry)
 
 function searchListCountry(response) {
     const markup = response
-        .map(e => {
-            return `<div class="item_country">
+        .map(el => {
+            return `<li class="item_country">
             <img class="img" src="${el.flags.svg}" width = 30 alt="flag">
             <h3 class="title">${el.name.official}<h3>
             </li>`;
@@ -50,7 +50,7 @@ function searchListCountry(response) {
     
 
 function searchOneCountry(response) {
-    const markUp = response
+    const markup = response
     .map(el => {
     return `<div class="item_country"><img class="img" src="${
         el.flags.svg
@@ -61,7 +61,7 @@ function searchOneCountry(response) {
     <p class="text"><b>Languages:</b> ${Object.values(el.languages)}</p>`;
     })
     .join('');
-    countryInfo.innerHTML = markUp;
+    countryInfo.innerHTML = markup;
 }
 
 function clearSearchCountry() {
