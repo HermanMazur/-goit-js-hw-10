@@ -7,7 +7,7 @@ const DEBOUNCE_DELAY = 300;
 
 
 const countryInputOn = document.querySelector('#search-box');
-const countryList = document / querySelector('.country-list');
+const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
 
 countryInputOn.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
@@ -18,3 +18,18 @@ function inputCountry(evt) {
         return;
     }
 }
+
+fetchCountries(countryName)
+    .then(response => {
+        if (response.length > 10) {
+            Notify.info(
+                'Too many matches found. Please enter a more specific name.'
+            );
+        }
+        if (response.length >= 2 && response.length <= 10) {
+            searchOneCountry(response);
+        }
+    })
+    .catch(error => console.log(error));
+clearSearchCountry();
+
