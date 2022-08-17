@@ -16,14 +16,14 @@ function inputCountry(evt) {
     if (nameCountry === "") {
         return;
     }
-
 fetchCountries(nameCountry)
     .then(response => {
         if (response.length > 10) {
             Notify.info(
                 'Too many matches found. Please enter a more specific name.'
             );
-        } if (response.length >= 2 && response.length <= 10) {
+        }
+        if (response.length >= 2 && response.length <= 10) {
             searchListCountry(response);
         }
         if (response.length === 1) {
@@ -39,7 +39,7 @@ function searchListCountry(response) {
         .map(el => {
             return `<li class="item_country">
             <img class="img" src="${el.flags.svg}" width = 30 alt="flag">
-            <h3 class="title">${el.name.official}<h3>
+            <h3 class="title">${el.name.official}</h3>
             </li>`;
         })
         .join('');
