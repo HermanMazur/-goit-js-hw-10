@@ -10,6 +10,6 @@ export function fetchCountries(name) {
                 Notify.failure('Oops, there is no country with that name')
             );
 }
-return response.json();
+    return response.json();
     });
 }
