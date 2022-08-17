@@ -13,13 +13,12 @@ const countryInfo = document.querySelector('.country-info');
 countryInputOn.addEventListener('click', debounce(inputCountry, DEBOUNCE_DELAY));
 
 function inputCountry(evt) {
-    const countryName = evt.target.value.trim();
-    if (countryName === "") {
+    const nameCountry = evt.target.value.trim();
+    if (nameCountry === "") {
         return;
     }
-}
 
-fetchCountries(countryName)
+fetchCountries(nameCountry)
     .then(response => {
         if (response.length > 10) {
             Notify.info(
@@ -34,7 +33,8 @@ fetchCountries(countryName)
         }
     })
     .catch(error => console.log(error));
-clearSearchCountry();
+    clearSearchCountry();
+    }
 
 function searchListCountry(response) {
     const markup = response
@@ -47,6 +47,7 @@ function searchListCountry(response) {
         .join('');
     countryList.innerHTML = markup;
 }
+    
 
 function searchOneCountry(response) {
     const markUp = response
