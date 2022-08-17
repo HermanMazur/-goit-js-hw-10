@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function fetchCountries(name) {
-    const searchCountry = 'name, capital, population, flags, languages';
+    const searchCountry = 'name,capital,population,flags,languages';
     return fetch(
         `https://restcountries.com/v3.1/name/${name}?fields=${searchCountry}`
     ).then(response => {
@@ -13,3 +13,4 @@ export function fetchCountries(name) {
     return response.json();
     });
 }
+
