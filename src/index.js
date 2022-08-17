@@ -45,6 +45,7 @@ function searchListCountry(response) {
         .join('');
     countryList.innerHTML = markup;
 }
+
     
 function searchOneCountry(response) {
     const markup = response
